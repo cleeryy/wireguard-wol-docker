@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  pivpn-gateway:
+    build: .
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_MODULE
+      - SYS_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - PEERS=1
+      - PEERDNS=94.140.14.14
+    volumes:
+      - ./wireguard:/config/wg_confs
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "51820:51820/udp"
+      - "8000:8000/tcp"
+      - "9:9/udp"
+    sysctls:
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
+
