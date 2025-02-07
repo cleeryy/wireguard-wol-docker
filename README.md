@@ -3,11 +3,11 @@ if you want to access you local network and turn on your pc from remote :
 git clone this :
 
 ```
-git clone <this repo>
+git clone https://github.com/cleeryy/wireguard-wol-docker.git
 ```
 go into the cloned repo
 ```
-cd <this repo cloned>
+cd wireguard-wol-docker
 ```
 and run the bellow command (install docker if you don't have it...)
 ```
